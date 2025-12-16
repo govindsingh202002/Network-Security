@@ -9,7 +9,7 @@ base_dir= os.path.dirname(os.path.abspath(__file__))
 log_dir=os.path.join(base_dir,"..","..","logs")
 os.makedirs(log_dir,exist_ok=True)
 # define log file path name
-log_file_name=f"{datetime.now().strftime("%d_%m_%Y_%H_%M_%S")}.log"
+log_file_name = f"{datetime.now().strftime('%d_%m_%Y_%H_%M_%S')}.log"
 log_file_path=os.path.join(log_dir,log_file_name)
 
 # creating a log formatter
@@ -29,5 +29,8 @@ file_handler.setLevel(logging.DEBUG)
 
 logger=logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-logger.addHandler(file_handler)
+if not logger.handlers:
+    logger.addHandler(file_handler)
+    #logger  →  handler  →  formatter  →  file
+    
 logger.propagate=False
