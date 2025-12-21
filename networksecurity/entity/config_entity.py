@@ -32,7 +32,7 @@ class DataIngestionConfig:
             self.artifact_dir=training_pipeline_config.artifact_dir
 
             self.data_ingestion_dir_name=training_pipeline.DATA_INGESTION_DIR_NAME
-            self.data_ingestion_dir=os.path.join(self.artifact_dir,self.data_ingestion_dir)
+            self.data_ingestion_dir=os.path.join(self.artifact_dir,self.data_ingestion_dir_name)
             os.makedirs(self.data_ingestion_dir,exist_ok=True)
 
             self.feature_store_dir_name=training_pipeline.DATA_INGESTION_FEATURE_STORE_DIR_NAME
